@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 20px;
+    font-family: sans-serif;
+}
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table td,.table th{
+padding: 12px 15px;
+border: 1px solid #ddd;
+text-align: center;
+font-size: 16px;
+}
+.table thead{
+background-color: 	#518cca;
+color: 	black;
+}
+.table tbody tr:nth-child(even){
+    background-color: #e23636;
+    color: white;
+}
+
+

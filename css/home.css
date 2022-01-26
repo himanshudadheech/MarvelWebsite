@@ -1,0 +1,645 @@
+*{
+    margin:0;
+
+   padding: 0;
+   box-sizing: border-box;
+   font-family: sans-serif;
+}
+
+nav{
+    display: flex;
+    background-image: linear-gradient(to right,#504a4a, #000000);   height: 80px;
+/* Vertically centre mai lane k liye aligin item */
+   align-items: center; 
+   justify-content: space-between;
+   padding: 0px 50px 0px 100px;
+}
+nav .logo{
+    font-size: 23px;
+    color: #f78f3f;
+    font-weight: 600;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+   
+
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+ 
+    padding:  8px 10px;
+  /* transition use krte hai smooth ness k liye */
+  transition: all 0.3s ease-in;
+  border-radius: 15px 2px 15px 2px;
+}
+
+nav ul li a:hover{
+    color: white;
+  background-color: #e23636;
+   
+    border-radius: 15px 2px 15px 2px;
+}
+
+
+nav ul li a.active{
+    color: white;
+    background-color: #e23636;
+     
+      border-radius: 5px;
+  }
+  nav .menu-button i{
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: none;
+}
+#click{
+    display: none;
+}
+
+#click:checked ~ .menu-button i::before{
+    content: "\f00d";
+
+}
+
+
+
+  /* Responsive banne ka code */
+
+  @media(max-width:940px){
+    
+      nav ul{
+          position: fixed;
+          top: 80px;
+          background: #000000;
+          height: 100vh;
+          width: 100%;
+          display: block;
+          /* Left mai slide krne k liye */
+          left: -100%;
+          text-align: center;
+          transition: all 0.3 ease;
+      }
+      /* check box menu pr click hone pr code */
+      #click:checked ~ ul{
+          left: 0%;
+      }
+      #click:checked ~ .menu-button i::before{
+        content: "\f00d";
+
+    }
+
+  
+      /* --------------- */
+
+
+      nav ul li{
+          margin-top: 40px;
+         
+      }
+
+      nav ul li a{
+          font-size: 20px ;
+          display: inline;
+           
+      }
+      nav ul li a:hover{
+        color: #e23636;
+     background: none;
+        
+    }
+    
+    
+    nav ul li a.active{
+        color: #e23636;
+       background: none;
+         
+        
+      }
+      nav .menu-button i{
+        color: white;
+        font-size: 20px;
+        display: block;
+        cursor: pointer;
+    }
+       
+  
+    
+  }
+/* *----------------- moving text slider */
+#textslider{
+    width: 100%;
+}
+.hwrap {
+    /* (A1) DIMENSIONS */
+    width: 100%;
+    /* OPTIONAL */
+  
+    /* (A2) COSMETICS */
+    background: #fffdea;
+    border: 2px solid #ffcf1f;
+    overflow: hidden; /* HIDE SCROLLBARS */
+  }
+  
+  /* (B) MIDDLE CONTAINER - FLEX LAYOUT */
+  .hmove {
+    display: flex;
+    position: relative;
+    top: 0; right: 0;
+  }
+  
+  /* (C) SLIDES - FORCE INTO ONE LONG HORIZONTAL ROW */
+  .hslide {
+    width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+  /* (D) SLIDE ANIMATION */
+  @keyframes slideh {
+
+    0% { right: 0; }
+    30% { right: 0; }
+    33% { right: 100%; }
+    63% { right: 100%; }
+    66% { right: 200%; }
+    97% { right: 200%; }
+    100% { right: 0; }
+  }
+  .hmove { animation: slideh linear 5s infinite; }
+  .hmove:hover { animation-play-state: paused; }
+  
+
+
+/* ------------------ section one */
+
+
+@media(max-width:940px){
+  .hwrap{
+   width: 100vw;
+  }
+
+  #one{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    background: #0b0c0e;
+  }
+  
+
+}
+#one{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0396FF;
+  }
+  .container{
+    height: 500px;
+    display: flex;
+    min-width: 400px;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: -55px;
+  }
+  .icon-image{
+    position: relative;
+    height: 70px;
+    width: 70px;
+    margin: 0 5px;
+    cursor: pointer;
+    margin-left: 50px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    background: #fff;
+  }
+  .icon-image .icon img{
+    position: absolute;
+    height: 95%;
+    width: 95%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #0396FF;
+  }
+  .icon-image::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: -50px;
+    transform: translateX(-50%);
+  }
+  .icon-image .hover-image{
+    position: absolute;
+    height: 350px;
+    width: 300px;
+    bottom: 100px;
+    left: 50%;
+    z-index: 0;
+    margin-left: 50px;
+    transform: translateX(-50%);
+    border-radius: 25px;
+    pointer-events: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.5s ease, z-index 0s, left 0.5s ease ;
+    transition-delay: 0s, 0.5s, 0.5s;
+  }
+  .icon-image:hover .hover-image{
+    left: -200px;
+    z-index: 12;
+    transform: translateY(120px);
+    transition: left 0.5s ease, z-index 0s, transform 0.5s ease;
+    transition-delay: 0s, 0.5s, 0.5s;
+  }
+  .hover-image img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    
+   
+  }
+  .hover-image .content{
+    position: absolute;
+    width: 100%;
+    bottom: -10px;
+    padding: 0 10px;
+  }
+  .content::before{
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: rgb(221, 218, 218);
+    left: 50%;
+    bottom: -10px;
+    transform: rotate(45deg) translateX(-50%);
+    z-index: -1;
+  }
+  .content .details{
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+  }
+  .icon-image:hover .details{
+    transition: all 0.5s ease;
+    transition-delay: 0.9s;
+    opacity: 1;
+    transform: translateY(4px);
+    pointer-events: auto;
+  }
+  .details::before{
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    left: 50%;
+    bottom: -15px;
+    transform: rotate(45deg) translateX(-50%);
+    z-index: -1;
+  }
+  .content .details .name{
+   font-size: 20px;
+   font-weight: 500;
+  }
+  .content .details .job{
+   font-size: 17px;
+   color: #0396FF;
+   margin: -3px 0 5px 0;
+  }
+  .content .details a:hover{
+    color: #0396FF;
+  }
+  .container .last .hover-image{
+    transition: none;
+  }
+  .container .last:hover .hover-image{
+    transition: 0;
+  }
+  .last:hover .details{
+    transition-delay: 0s;
+  }
+  /* ---------------------- Section 3 */
+#two{
+  
+  width: 100%;
+  height: 100vh;
+  padding: auto;
+  margin: auto;
+  justify-content: center;
+  background: #000000;
+  box-sizing: border-box;
+  
+}
+.cards{
+ padding: 10px;
+   height: 320px;
+   width: 250px;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   
+  }
+
+  .thecard{
+    
+    width: 100%;
+    height: 100%;
+    margin: 50px;
+  
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+
+  @media(max-width:940px) {
+
+   
+#two{
+  display: flex;
+  width: 100%;
+  height: 200vh;
+
+  background: #000000;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+    .cards{
+      width: max-content;;
+
+    float: initial;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+     justify-content: left;
+        
+       }
+     
+       .thecard{
+         
+        width: max-content;
+         height: 100%;
+         margin: 50px;
+         flex: 0 1 calc(50% - 1em);
+         transform-style: preserve-3d;
+         transition: all 0.5s ease;
+         cursor: pointer;
+       }
+
+       .thecard h1{
+      
+        text-align: left;
+      
+        }
+        .thecard img{
+          border-radius: 15px 15px 15px 15px;
+         
+          width: 150px;
+          height: 150px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-content: left;
+      
+        }
+        .thefront{
+          position: absolute;
+          width: max-content;
+          height: 50%;
+          border-radius: 10px;
+          backface-visibility: hidden;
+          background: #f78f3f;
+          color: #333;
+          
+    
+      }
+      .theback{
+        position: absolute;
+        width: max-content;
+        box-sizing: border-box;
+        height: 100%;
+       display: block;object-fit: cover;
+        backface-visibility: hidden;
+       background: #ddd9d9;
+       border-radius: 10px;
+        color: rgb(7, 6, 6);
+        transform: rotateY(180deg); 
+    }
+  }
+  
+
+
+  .thecard h1{
+  padding: 2px;
+  text-align: center;
+
+  }
+  .thecard img{
+    border-radius: 15px 15px 15px 15px;
+    padding-left: 1vh;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+  }
+  .thecard:hover{
+    transform: rotateY(180deg);
+ 
+
+  }
+  .thefront{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      background: #f78f3f;
+      color: #333;
+      
+
+  }
+  .theback{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+   background: #ddd9d9;
+   border-radius: 10px;
+    color: rgb(7, 6, 6);
+    transform: rotateY(180deg); 
+}
+.theback p{
+  padding: 5px;
+
+}
+
+
+
+/* ----------------- feedback */
+#feedback{
+  display: grid;
+  height: 100%;
+  place-items: center;
+  text-align: center;
+  background: rgb(112, 108, 108);
+}
+.container1{
+  position: relative;
+  width: 400px;
+  background: #111;
+  padding: 20px 30px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container1 .post{
+  display: none;
+}
+.container1 .text{
+  font-size: 25px;
+  color: #666;
+  font-weight: 500;
+}
+.container1 .edit{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+  cursor: pointer;
+}
+.container1 .edit:hover{
+  text-decoration: underline;
+}
+.container1 .star-widget input{
+  display: none;
+}
+.star-widget label{
+  font-size: 40px;
+  color: #444;
+  padding: 10px;
+  float: right;
+  transition: all 0.2s ease;
+}
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+  color: #fd4;
+}
+input:checked ~ label{
+  color: #fd4;
+}
+input#rate-5:checked ~ label{
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+}
+#rate-1:checked ~ form header:before{
+  content: "I just hate it ";
+}
+#rate-2:checked ~ form header:before{
+  content: "I don't like it ";
+}
+#rate-3:checked ~ form header:before{
+  content: "It is awesome ";
+}
+#rate-4:checked ~ form header:before{
+  content: "I just like it ";
+}
+#rate-5:checked ~ form header:before{
+  content: "I just love it ";
+}
+.container1 form{
+  display: none;
+}
+input:checked ~ form{
+  display: block;
+}
+form header{
+  width: 100%;
+  font-size: 25px;
+  color: #fe7;
+  font-weight: 500;
+  margin: 5px 0 20px 0;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+form .textarea{
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+form .textarea textarea{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  color: #eee;
+  border: 1px solid #333;
+  background: #222;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+.textarea textarea:focus{
+  border-color: #444;
+}
+form .btn{
+  height: 45px;
+  width: 100%;
+  margin: 15px 0;
+}
+form .btn button{
+  height: 100%;
+  width: 100%;
+  border: 1px solid #444;
+  outline: none;
+  background: #222;
+  color: #999;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+form .btn button:hover{
+  background: #1b1b1b;
+}
+/* footer */
+
+#footer{
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  background: #000;
+  color: white;
+}
